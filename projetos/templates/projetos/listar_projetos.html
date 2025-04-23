@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meus Projetos</title>
+</head>
+<body>
+    <h1>Meus Projetos</h1>
+    <ul>
+        {% for projeto in projetos %}
+            <li>
+                <strong>{{ projeto.titulo }}</strong><br>
+                {{ projeto.descricao }}<br>
+                {% if projeto.link %}
+                    <a href="{{ projeto.link }}" target="_blank">Ver projeto</a><br>
+                {% endif %}
+                {% if projeto.imagem %}
+                    <img src="{{ projeto.imagem.url }}" alt="{{ projeto.titulo }}" width="200">
+                {% endif %}
+            </li>
+            <hr>
+        {% empty %}
+            <li>Nenhum projeto cadastrado ainda.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
